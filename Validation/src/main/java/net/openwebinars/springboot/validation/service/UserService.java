@@ -94,5 +94,9 @@ public class UserService {
 
     }
 
+    public boolean userExists(String username) {
+        return repository.existsByUsername(username);
+    }
+
 
 }

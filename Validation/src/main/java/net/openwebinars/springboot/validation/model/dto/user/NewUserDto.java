@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.openwebinars.springboot.validation.validation.annotation.UniqueUsername;
 import org.hibernate.validator.constraints.URL;
 
 import javax.validation.constraints.Email;
@@ -17,6 +18,7 @@ public class NewUserDto {
     @NotEmpty(message = "{userDto.fullname.notempty}")
     private String fullname;
 
+    @UniqueUsername(message = "{newUserDto.username.unique}")
     @NotEmpty(message = "{newUserDto.username.notempty}")
     private String username;
 
