@@ -15,18 +15,18 @@ import javax.validation.constraints.NotEmpty;
 @Builder
 public class EditProductDto {
 
-    @NotEmpty
+    @NotEmpty(message = "{editProductDto.name.notempty}")
     private String name;
 
-    @Min(0)
+    @Min(value = 0, message = "{editProductDto.price.min}")
     private double price;
 
-    @URL
+    @URL(message = "{editProductDto.image.url}")
     private String image;
 
     private String desc;
 
-    @NotEmpty
+    @NotEmpty(message = "{editProductDto.supplier.notempty}")
     private String supplier;
 
     public static Product toProduct(EditProductDto dto) {

@@ -13,10 +13,10 @@ import javax.validation.constraints.NotEmpty;
 @Builder
 public class EditUserDto {
 
-    @NotEmpty
+    @NotEmpty(message = "{userDto.fullname.notempty}")
     private String fullname;
 
-    @URL
+    @URL(message = "{usrDto.avatar.url}")
     private String avatar;
 
 }

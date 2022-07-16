@@ -12,10 +12,10 @@ import javax.validation.constraints.NotEmpty;
 @Builder
 public class EditUserPasswordDto {
 
-    @NotEmpty
+    @NotEmpty(message = "{userDto.password.notempty}")
     private String password;
 
-    @NotEmpty
+    @NotEmpty(message = "{userDto.verifypassword.notempty}")
     private String verifyPassword;
 
 }

@@ -14,25 +14,23 @@ import javax.validation.constraints.NotEmpty;
 @Builder
 public class NewUserDto {
 
-    @NotEmpty
+    @NotEmpty(message = "{userDto.fullname.notempty}")
     private String fullname;
 
-    @NotEmpty
+    @NotEmpty(message = "{newUserDto.username.notempty}")
     private String username;
 
-    @NotEmpty
-    @Email
+    @NotEmpty(message = "{newUserDto.email.notempty}")
+    @Email(message = "{newUserDto.email.email}")
     private String email;
 
-    @URL
+    @URL(message = "{userDto.avatar.url}")
     private String avatar;
 
-    @NotEmpty
+    @NotEmpty(message = "{userDto.password.notempty}")
     private String password;
 
-    @NotEmpty
+    @NotEmpty(message = "{userDto.verifypassword.notempty}")
     private String verifyPassword;
-
-
 
 }
