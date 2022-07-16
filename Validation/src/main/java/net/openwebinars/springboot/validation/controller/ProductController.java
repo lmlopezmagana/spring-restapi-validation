@@ -4,17 +4,21 @@ import lombok.RequiredArgsConstructor;
 import net.openwebinars.springboot.validation.model.Product;
 import net.openwebinars.springboot.validation.model.dto.product.EditProductDto;
 import net.openwebinars.springboot.validation.service.ProductService;
+import org.hibernate.validator.constraints.UniqueElements;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import javax.validation.Valid;
+import javax.validation.constraints.Min;
 import java.net.URI;
 import java.util.List;
 
 @RestController
 @RequestMapping("/product")
 @RequiredArgsConstructor
+@Validated
 public class ProductController {
 
     private final ProductService productService;
@@ -23,6 +27,20 @@ public class ProductController {
     public List<Product> getAll() {
         return productService.findAll();
     }
+
+    @GetMapping("/suppliers/")
+    public List<Product> getBySupplier(@RequestParam
+                       @UniqueElements(message = "Proveedores duplicados") List<String> list) {
+        return productService.productsBySupplier(list);
+    }
+
+    @GetMapping("/price/min/{value}")
+    public List<Product> getByMinPrice(@PathVariable @Min(value = 0, message = "{editProductDto.price.min}") Double value) {
+        return productService.productsWithMinPrice(value);
+    }
+
+
+
 
     @GetMapping("/{id}")
     public Product getById(@PathVariable Long id) {

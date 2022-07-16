@@ -22,7 +22,7 @@ public class ProductService {
         if (result.isEmpty())
             throw new EntityNotFoundException("No products with this search criteria");
 
-        return repository.findAll();
+        return result;
     }
 
     public Product findById(Long id) {
@@ -50,6 +50,27 @@ public class ProductService {
     public void delete(Long id) {
         if (repository.existsById(id))
             repository.deleteById(id);
+    }
+
+
+    public List<Product> productsWithMinPrice(double price) {
+
+        List<Product> result = repository.findByPriceGreaterThan(price);
+
+        if (result.isEmpty())
+            throw new EntityNotFoundException("No products with this search criteria");
+
+        return result;
+
+    }
+
+    public List<Product> productsBySupplier(List<String> suppliers) {
+        List<Product> result = repository.findBySupplierIn(suppliers);
+
+        if (result.isEmpty())
+            throw new EntityNotFoundException("No products with this search criteria");
+
+        return result;
     }
 
 
