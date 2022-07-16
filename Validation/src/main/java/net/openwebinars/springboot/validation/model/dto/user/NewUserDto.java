@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import net.openwebinars.springboot.validation.validation.annotation.PasswodsMatch;
 import net.openwebinars.springboot.validation.validation.annotation.UniqueUsername;
 import org.hibernate.validator.constraints.URL;
 
@@ -13,6 +14,8 @@ import javax.validation.constraints.NotEmpty;
 @Data
 @NoArgsConstructor @AllArgsConstructor
 @Builder
+@PasswodsMatch(passwordField = "password", verifyPasswordField = "verifyPassword",
+        message="{newUserDto.password.nomatch}")
 public class NewUserDto {
 
     @NotEmpty(message = "{userDto.fullname.notempty}")
