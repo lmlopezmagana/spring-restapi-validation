@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import net.openwebinars.springboot.validation.validation.annotation.FieldsValueMatch;
 import net.openwebinars.springboot.validation.validation.annotation.PasswodsMatch;
+import net.openwebinars.springboot.validation.validation.annotation.StrongPassword;
 import net.openwebinars.springboot.validation.validation.annotation.UniqueUsername;
 import org.hibernate.validator.constraints.URL;
 
@@ -44,6 +45,7 @@ public class NewUserDto {
     @URL(message = "{userDto.avatar.url}")
     private String avatar;
 
+    @StrongPassword
     @NotEmpty(message = "{userDto.password.notempty}")
     private String password;
 
