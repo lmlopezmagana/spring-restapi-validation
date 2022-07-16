@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class ProductController {
     }
 
     @PostMapping
-    public ResponseEntity<Product> newProduct(@RequestBody EditProductDto productDto) {
+    public ResponseEntity<Product> newProduct(@Valid @RequestBody EditProductDto productDto) {
         Product created = productService.save(productDto);
 
         URI createdURI = ServletUriComponentsBuilder

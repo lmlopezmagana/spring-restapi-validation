@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -40,7 +41,7 @@ public class UserController {
 
 
     @PostMapping("/register")
-    public ResponseEntity<GetUserDto> register(@RequestBody NewUserDto newUserDto) {
+    public ResponseEntity<GetUserDto> register(@Valid  @RequestBody NewUserDto newUserDto) {
 
         User created = userService.save(newUserDto);
 
@@ -57,7 +58,7 @@ public class UserController {
     }
 
     @PutMapping("/details/{id}")
-    public GetUserDto editDetails(@PathVariable Long id, @RequestBody EditUserDto editUserDto) {
+    public GetUserDto editDetails(@PathVariable Long id, @Valid @RequestBody EditUserDto editUserDto) {
 
         User edited = userService.editDetails(id, editUserDto);
 
@@ -66,7 +67,7 @@ public class UserController {
     }
 
     @PutMapping("/password/{id}")
-    public GetUserDto editDetails(@PathVariable Long id, @RequestBody EditUserPasswordDto editUserPasswordDto) {
+    public GetUserDto editDetails(@PathVariable Long id, @Valid @RequestBody EditUserPasswordDto editUserPasswordDto) {
 
         User edited = userService.changePassword(id, editUserPasswordDto);
 
