@@ -1,0 +1,515 @@
+{
+	"info": {
+		"_postman_id": "fbccc637-e613-4dad-a9ad-7b74001d5a46",
+		"name": "Validation",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6104479"
+	},
+	"item": [
+		{
+			"name": "Errores varios",
+			"item": [
+				{
+					"name": "POST Nuevo producto Con Errores Varios",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": null,\n    \"price\": -1.75,\n    \"desc\": \"\",\n    \"image\": \"images.com/img1.jpg\",\n    \"supplier\": \"First supplier\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/product/",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"product",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nuevo usuario Con Errores",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\": \"Luis Miguel López\",\n    \"username\": \"luismi\",\n    \"password\": \"\",\n    \"verifyPassword\": \"123456\",\n    \"email\": \"luismi@openwebinars\",\n    \"avatar\": \"https://\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nuevo usuario 2.0 Con Errores",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\": \"Luis Miguel López\",\n    \"username\": \"luismi\",\n    \"password\": \"\",\n    \"verifyPassword\": \"123456\",\n    \"email\": \"luismi@openwebinars\",\n    \"verifyEmail\": \"luismi@openwebinars.net\",\n    \"avatar\": \"https://\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST Nuevo usuario 3.0 Con Errores en Password",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"fullname\": \"Luis Miguel López\",\n    \"username\": \"luismi\",\n    \"password\": \"\",\n    \"verifyPassword\": \"123456\",\n    \"email\": \"luismi@openwebinars\",\n    \"verifyEmail\": \"luismi@openwebinars.net\",\n    \"avatar\": \"https://\"\n\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/register",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PUT Cambiar contraseña Con Errores",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"password\": null,\n    \"verifyPassword\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/user/password/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"user",
+								"password",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Peticiones correctas",
+			"item": [
+				{
+					"name": "Producto",
+					"item": [
+						{
+							"name": "Validación - otras entradas",
+							"item": [
+								{
+									"name": "GET Productos por proveedor",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/suppliers/?list=p1,p2,p2",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												"suppliers",
+												""
+											],
+											"query": [
+												{
+													"key": "list",
+													"value": "p1,p2,p2"
+												}
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "GET Productos por precio",
+									"request": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{baseUrl}}/product/price/min/-7.0",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"product",
+												"price",
+												"min",
+												"-7.0"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "GET Todos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST Nuevo producto",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"One product\",\n    \"price\": 1.75,\n    \"desc\": \"Lorem ipsum dolor sit amet\",\n    \"image\": \"http://www.images.com/img1.jpg\",\n    \"supplier\": \"First supplier\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT Editar producto",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"name\": \"The product\",\n    \"price\": 2.35,\n    \"desc\": \"Lorem ipsum dolor sit amet\",\n    \"image\": \"http://www.images.com/img1.jpg\",\n    \"supplier\": \"First supplier\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/product/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Borrar producto",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Por Id Ok",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/product/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"product",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Usuario",
+					"item": [
+						{
+							"name": "GET Todos",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										""
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "GET Por Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST Nuevo usuario",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fullname\": \"Luis Miguel López\",\n    \"username\": \"luismi\",\n    \"password\": \"123456\",\n    \"verifyPassword\": \"123456\",\n    \"email\": \"luismi@openwebinars.net\",\n    \"avatar\": \"https://robohash.org/luismi\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "POST Nuevo usuario constraseña ok",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fullname\": \"Luis Miguel López\",\n    \"username\": \"luismi\",\n    \"password\": \"Luismi123$\",\n    \"verifyPassword\": \"Luismi123$\",\n    \"email\": \"luismi@openwebinars.net\",\n    \"avatar\": \"https://robohash.org/luismi\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT Editar usuario",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"fullname\": \"Luis Miguel López Magaña\",\n    \"username\": \"luismilopez\",\n    \"email\": \"luismi@luismi.com\",\n    \"avatar\": \"https://robohash.org/luismi\"\n\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user/details/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"details",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PUT Cambiar contraseña",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"password\": \"345678\",\n    \"verifyPassword\": \"345678\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user/password/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"password",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DELETE Borrar usuario",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{baseUrl}}/user/1",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
