@@ -10,8 +10,8 @@ import net.openwebinars.springboot.validation.validation.annotation.StrongPasswo
 import net.openwebinars.springboot.validation.validation.annotation.UniqueUsername;
 import org.hibernate.validator.constraints.URL;
 
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
 
 @Data
 @NoArgsConstructor @AllArgsConstructor

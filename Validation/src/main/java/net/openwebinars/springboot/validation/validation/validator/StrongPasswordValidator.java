@@ -3,8 +3,8 @@ package net.openwebinars.springboot.validation.validation.validator;
 import net.openwebinars.springboot.validation.validation.annotation.StrongPassword;
 import org.passay.*;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;

@@ -6,7 +6,7 @@ import net.openwebinars.springboot.validation.model.dto.product.EditProductDto;
 import net.openwebinars.springboot.validation.repo.ProductRepository;
 import org.springframework.stereotype.Service;
 
-import javax.persistence.EntityNotFoundException;
+import jakarta.persistence.EntityNotFoundException;
 import java.util.List;
 
 @Service

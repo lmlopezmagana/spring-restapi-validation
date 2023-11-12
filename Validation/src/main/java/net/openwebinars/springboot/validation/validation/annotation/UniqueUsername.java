@@ -2,8 +2,8 @@ package net.openwebinars.springboot.validation.validation.annotation;
 
 import net.openwebinars.springboot.validation.validation.validator.UniqueUsernameValidator;
 
-import javax.validation.Constraint;
-import javax.validation.Payload;
+import jakarta.validation.Constraint;
+import jakarta.validation.Payload;
 import java.lang.annotation.*;
 
 @Target({ElementType.METHOD, ElementType.FIELD})

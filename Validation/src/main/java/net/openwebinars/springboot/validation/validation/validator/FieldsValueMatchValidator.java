@@ -3,8 +3,8 @@ package net.openwebinars.springboot.validation.validation.validator;
 import net.openwebinars.springboot.validation.validation.annotation.FieldsValueMatch;
 import org.springframework.beans.PropertyAccessorFactory;
 
-import javax.validation.ConstraintValidator;
-import javax.validation.ConstraintValidatorContext;
+import jakarta.validation.ConstraintValidator;
+import jakarta.validation.ConstraintValidatorContext;
 
 public class FieldsValueMatchValidator implements ConstraintValidator<FieldsValueMatch, Object> {
 
